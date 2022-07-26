@@ -1,27 +1,36 @@
-# ShoppingTrackingListApp
+# Shopping Tracking List App
+### A system for managing product tracking through online orders.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+### Features
 
-## Development server
+- Create new item.
+- Bring back item from archive.
+- See the amount of purchases of the products by store name.
+- See the **total** price of purchases of the products by store name.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Here is an example of what an item looks like:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Item      | Value |
+| --------- | -----:|
+| Item Name  | SanDisk SSD |
+| Online Store     |   Amazon |
+| Price (USD only)      |    $10 |
+| Delivery EST Date  | 01/12/2020 |
 
-## Build
+## API
+- [Exchange Rate](https://www.abstractapi.com/)
+- [Products](https://fakestoreapi.com/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Libraries
 
-## Running end-to-end tests
+- [ngrx/store](https://ngrx.io/guide/store/) used for state management.
+- [ngrx/effects](https://v10.ngrx.io/guide/effects#:~:text=%40ngrx%2Feffectslink&text=Effects%20are%20an%20RxJS%20powered,messages%20and%20time%2Dbased%20events./) used for work with WS.
+- [Angular Material](https://material.angular.io/) used for design.
+- [Angular Flex Layout](https://github.com/angular/flex-layout/) used for style.
+- [Moment js](https://momentjs.com/) used for date formatting.
+- [Until Destroy](https://github.com/ngneat/until-destroy) for prevent memory leaks issues.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
