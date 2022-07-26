@@ -1,0 +1,23 @@
+<div class="item-wrapper">
+    <div class="toolbar-secondary">
+        <mat-toolbar>
+            <mat-tab-group>
+                <mat-tab class="customTab" label="Delivery">
+                    <app-item-table
+                            [inputData]="active$ | async"
+                            [displayedColumns]="displayedColumns"
+                            [isAddButton]="true"
+                            [addButtonText]="'Add item'"
+                    ></app-item-table>
+                </mat-tab>
+                <mat-tab class="customTab" label="Archive items">
+                    <app-item-table
+                            [inputData]="archive$ | async"
+                            [displayedColumns]="displayedColumns"
+                    ></app-item-table>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-toolbar>
+
+    </div>
+</div>

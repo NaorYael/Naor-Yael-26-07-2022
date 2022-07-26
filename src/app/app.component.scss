@@ -1,0 +1,28 @@
+@use '../assets/global' as c;
+
+.currency, .currency-text {
+    color: c.$shopping-app-white;
+    font-size: c.$font-lg;
+    padding: 15px;
+}
+
+mat-toolbar {
+    background-color: c.$shopping-app-primary;
+}
+
+::ng-deep .mat-form-field-infix {
+    width: 45px !important;
+}
+
+::ng-deep .currency-text .mat-form-field-underline {
+    display: none;
+}
+
+::ng-deep .mat-tab-label-content {
+    font-size: c.$font-lg;
+    color: c.$shopping-app-white !important;
+}
+
+::ng-deep .mat-ink-bar {
+    background-color: c.$shopping-app-white !important;
+}

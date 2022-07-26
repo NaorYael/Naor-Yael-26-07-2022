@@ -1,0 +1,61 @@
+<div class="item-table">
+    <div class="title">
+        <h2>{{formTitle}}</h2>
+        <div (click)="closeDialog()">x</div>
+    </div>
+    <div>
+        <form [formGroup]="addItemForm">
+            <mat-grid-list cols="2" rowHeight="85px">
+                <mat-grid-tile>
+                    <div class="text-inside">
+                        <mat-form-field>
+                            <input class="auto"
+                                   type="text"
+                                   placeholder="Item name"
+                                   matInput
+                                   [formControl]="myControl"
+                                   [matAutocomplete]="auto">
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="text-inside">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Store" formControlName="store">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div class="text-inside">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Price (USD Only)" formControlName="priceUSD" type="number">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div class="text-inside">
+                        <mat-form-field class="example-full-width">
+                            <input matInput [matDatepicker]="picker" type="date" placeholder="Receive date estimated"
+                                   formControlName="estimatedDelivery">
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <div class="btn">
+                <button mat-raised-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+                <button mat-raised-button type="submit" color="primary" class="add-btn" (click)="onAddItem()">Add
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

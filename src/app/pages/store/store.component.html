@@ -1,0 +1,6 @@
+<div *ngIf="items$ | async as items">
+    <app-store-table
+            [inputData]="items"
+            [displayedColumns]="displayedColumns">
+    </app-store-table>
+</div>

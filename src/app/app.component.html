@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="start" fxFlex>
+        <mat-tab-group class="currency-text" (selectedTabChange)="onTabChanged($event)" [selectedIndex]="selectedIndex">
+            <mat-tab label="Purchase by item"></mat-tab>
+            <mat-tab label="Purchase by stores"></mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="currency-text">
+        Currency:
+        <mat-form-field class="currency">
+            <mat-select [(ngModel)]="selectedValue" (selectionChange)="selectedCurrency($event)">
+                <mat-option *ngFor="let option of currencyOptions"
+                            [value]="option">{{ option === 'ILS' ? '₪' : '$' }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</mat-toolbar>
+<main>
+    <router-outlet></router-outlet>
+</main>
