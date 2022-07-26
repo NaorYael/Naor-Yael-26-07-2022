@@ -22,7 +22,7 @@
 | Delivery EST Date  | 01/12/2020 |
 
 ## API
-- [Exchange Rate](https://www.abstractapi.com/)
+- [Exchange Rate](https://www.abstractapi.com/) (limit up to 1000 requests.)
 - [Products](https://fakestoreapi.com/)
 
 
