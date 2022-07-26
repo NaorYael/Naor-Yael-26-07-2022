@@ -1,5 +1,5 @@
 # Shopping Tracking List App
-####A system for managing product tracking through online orders.
+###A system for managing product tracking through online orders.
 
 ### Features
 
@@ -9,7 +9,7 @@
 - See the **total** price of purchases of the products by store name.
 
 
-####Here is an example of what an item looks like:
+##Here is an example of what an item looks like:
 
 | Item      | Value |
 | --------- | -----:|
@@ -18,11 +18,13 @@
 | Price (USD only)      |    $10 |
 | Delivery EST Date  | 01/12/2020 |
 
-####API
-[Exchange Rate](https://www.abstractapi.com/)
-[Products](https://fakestoreapi.com/)
+###API
+- [Exchange Rate](https://www.abstractapi.com/)
+- [Products](https://fakestoreapi.com/)
 
-####Libraries
+
+
+###Libraries
 
 - [ngrx/store](https://ngrx.io/guide/store/) used for state management.
 - [ngrx/effects](https://v10.ngrx.io/guide/effects#:~:text=%40ngrx%2Feffectslink&text=Effects%20are%20an%20RxJS%20powered,messages%20and%20time%2Dbased%20events./) used for work with WS.
