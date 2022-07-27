@@ -26,7 +26,7 @@
     │   └── ...              
     │   
     └── ...
-## Here is an example of what an item looks like:
+## Here is an example of Item object:
 
 | Item      | Value |
 | --------- | -----:|
@@ -44,7 +44,7 @@
 ## Libraries
 
 - [ngrx/store](https://ngrx.io/guide/store/) used for state management.
-- [ngrx/effects](https://v10.ngrx.io/guide/effects#:~:text=%40ngrx%2Feffectslink&text=Effects%20are%20an%20RxJS%20powered,messages%20and%20time%2Dbased%20events./) used for work with WS.
+- [ngrx/effects](https://v10.ngrx.io/guide/effects#:~:text=%40ngrx%2Feffectslink&text=Effects%20are%20an%20RxJS%20powered,messages%20and%20time%2Dbased%20events./) used for work with API (without subscription).
 - [Angular Material](https://material.angular.io/) used for design.
 - [Angular Flex Layout](https://github.com/angular/flex-layout/) used for style.
 - [Moment js](https://momentjs.com/) used for date formatting.
