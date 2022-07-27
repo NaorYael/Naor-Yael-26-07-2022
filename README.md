@@ -7,6 +7,7 @@
 ### Features
 
 - Create new item.
+- Send item to archive.
 - Bring back item from archive.
 - See the amount of purchases of the products by store name.
 - See the **total** price of purchases of the products by store name.
