@@ -1,0 +1,57 @@
+import {createReducer, on} from "@ngrx/store";
+import {add, archive, fetchProductsSuccess, reactive, updateCurrencyType, updateExchangeRate} from "./app.actions";
+import {CurrencyEnumType} from "../models/currency-enum-type";
+import {ProductsResponseData} from "../models/product-response-data";
+import {Item} from "../models/item";
+
+export interface CurrencyState {
+  exchangeRate: number;
+  selectedCurrency: CurrencyEnumType;
+}
+
+export interface ProductState {
+  products: ProductsResponseData[];
+}
+
+export const initialStateCurrency: Readonly<CurrencyState> = {
+  exchangeRate: 3.5,
+  selectedCurrency: CurrencyEnumType.ILS
+};
+export const initialStateProducts: Readonly<ProductState> = {products: []};
+export const initialStateItems: ReadonlyArray<Item> = [];
+
+export const currencyReducer = createReducer(initialStateCurrency,
+  on(updateExchangeRate, (state, {payload}) => {
+    return {...state, exchangeRate: payload}
+  }),
+  on(updateCurrencyType, (state, {payload}) => {
+    return {...state, selectedCurrency: payload}
+  })
+);
+
+export const productsReducer = createReducer(initialStateProducts,
+  on(fetchProductsSuccess, (state, data) => {
+    return {...state, products: data.payload}
+  })
+);
+
+export const itemsReducer = createReducer(initialStateItems,
+  on(add, (state, {payload}) => [...state, payload]),
+  on(archive, (state, {payload}) => {
+    return [...updateIsArchiveOnItem(state, payload, true)]
+  }),
+  on(reactive, (state, {payload}) => {
+    return [...updateIsArchiveOnItem(state, payload, false)]
+  }),
+);
+
+function updateIsArchiveOnItem(state: ReadonlyArray<Item>, item: Item, isArchived: boolean) {
+  const items = [...state];
+  const index = items.indexOf(item);
+
+  if (index !== -1) {
+    items[index] = {...items[index], isArchived}
+  }
+  return items;
+}
+

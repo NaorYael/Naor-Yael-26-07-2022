@@ -2,12 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {Store} from "@ngrx/store";
-import {add, fetchProducts} from "../../state/items.actions";
+import {add, fetchProducts} from "../../state/app.actions";
 import {Item} from "../../models/item";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {map, Observable, startWith} from 'rxjs';
-import {ProductsService} from "../../services/products.service";
-import {selectProducts} from '../../state/items.selectors';
+import {selectProducts} from '../../state/app.selectors';
 import {ProductsResponseData} from '../../models/product-response-data';
 import * as moment from 'moment';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
@@ -31,7 +30,6 @@ export class AddItemComponent implements OnInit {
         private fb: FormBuilder,
         public dialog: MatDialog,
         private store: Store,
-        public productsService: ProductsService,
         private snackBar: MatSnackBar
     ) {
     }

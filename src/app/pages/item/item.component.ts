@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Item} from "../../models/item";
 import {Store} from "@ngrx/store";
-import {selectActive, selectArchive} from "../../state/items.selectors";
+import {selectActive, selectArchive} from "../../state/app.selectors";
 import {LOCAL_STORAGE_TAB_INDEX_KEY} from '../store/store.component'
 
 

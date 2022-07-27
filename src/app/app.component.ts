@@ -3,8 +3,8 @@ import {MatTabChangeEvent} from "@angular/material/tabs";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {CurrencyEnumType} from "./models/currency-enum-type";
-import {selectCurrencyType} from "./state/items.selectors";
-import {updateCurrencyType} from "./state/items.actions";
+import {selectCurrencyType} from "./state/app.selectors";
+import {updateCurrencyType} from "./state/app.actions";
 import {MatSelectChange} from '@angular/material/select'
 import {LOCAL_STORAGE_TAB_INDEX_KEY} from './pages/store/store.component'
 

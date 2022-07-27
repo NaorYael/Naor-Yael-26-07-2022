@@ -6,8 +6,8 @@ import {Item} from "../../models/item";
 import {Store} from "@ngrx/store";
 import {CurrencyEnumType} from "../../models/currency-enum-type";
 import {Observable} from "rxjs";
-import {selectCurrencyType, selectExchangeRate} from "../../state/items.selectors";
-import {archive, reactive} from "../../state/items.actions";
+import {selectCurrencyType, selectExchangeRate} from "../../state/app.selectors";
+import {archive, reactive} from "../../state/app.actions";
 
 @Component({
     selector: 'app-item-table',

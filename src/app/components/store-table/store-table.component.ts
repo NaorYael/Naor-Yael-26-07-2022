@@ -4,7 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Store} from "@ngrx/store";
 import {CurrencyEnumType} from "../../models/currency-enum-type";
 import {Observable} from "rxjs";
-import {selectByStore, selectCurrencyType, selectExchangeRate, StoreData} from "../../state/items.selectors";
+import {selectByStore, selectCurrencyType, selectExchangeRate, StoreData} from "../../state/app.selectors";
 
 @Component({
     selector: 'app-store-table',

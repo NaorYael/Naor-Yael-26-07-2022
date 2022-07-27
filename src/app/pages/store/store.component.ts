@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {CurrencyEnumType} from "../../models/currency-enum-type";
 import {Observable} from "rxjs";
-import {selectByStore, selectCurrencyType} from "../../state/items.selectors";
+import {selectByStore, selectCurrencyType} from "../../state/app.selectors";
 import {Router} from '@angular/router'
 
 export const LOCAL_STORAGE_TAB_INDEX_KEY = 'tabIndex';
