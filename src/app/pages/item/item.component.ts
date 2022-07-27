@@ -22,10 +22,10 @@ export class ItemComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.validateActiveTabOnPageRefresh()
+        this.activeTabOnPageRefresh()
     }
 
-    private validateActiveTabOnPageRefresh() {
+    private activeTabOnPageRefresh() {
         localStorage.setItem(LOCAL_STORAGE_TAB_INDEX_KEY, '0');
     }
 }
