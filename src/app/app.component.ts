@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {CurrencyEnumType} from "./models/currency-enum-type";
 import {selectCurrencyType} from "./state/app.selectors";
-import {updateCurrencyType} from "./state/app.actions";
+import {fetchExchangeRate, updateCurrencyType} from "./state/app.actions";
 import {MatSelectChange} from '@angular/material/select'
 import {LOCAL_STORAGE_TAB_INDEX_KEY} from './pages/store/store.component'
 
@@ -27,11 +27,10 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         // Call abstractapi every 10 sec, if the currency changed updated him according to the selected currency.
-        // setInterval(() => {
-        //     this.store.dispatch(fetchExchangeRate())
-        // }, 10000)
+        setInterval(() => {
+            this.store.dispatch(fetchExchangeRate())
+        }, 10000)
 
-        // set default value
         this.selectedValue = 'ILS';
 
         this.selectedIndex = this.getSelectedTabIndex();
