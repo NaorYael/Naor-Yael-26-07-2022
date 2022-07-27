@@ -7,65 +7,64 @@ import {Observable} from "rxjs";
 import {selectByStore, selectCurrencyType, selectExchangeRate, StoreData} from "../../state/app.selectors";
 
 @Component({
-    selector: 'app-store-table',
-    templateUrl: './store-table.component.html',
-    styleUrls: ['./store-table.component.scss']
+  selector: 'app-store-table',
+  templateUrl: './store-table.component.html',
+  styleUrls: ['./store-table.component.scss']
 })
 export class StoreTableComponent implements OnInit {
 
-    public displayedColumnsNames!: string[];
-    public selectedCurrency$: Observable<CurrencyEnumType>;
-    public exchangeRate$: Observable<number>;
-    public usd = CurrencyEnumType.USD;
-    public dataSource!: MatTableDataSource<StoreData>;
+  public displayedColumnsNames!: string[];
+  public selectedCurrency$: Observable<CurrencyEnumType>;
+  public exchangeRate$: Observable<number>;
+  public usd = CurrencyEnumType.USD;
+  public dataSource!: MatTableDataSource<StoreData>;
 
-    constructor(private dialog: MatDialog,
-                private store: Store) {
+  constructor(private dialog: MatDialog,
+              private store: Store) {
+  }
+
+  @Input()
+  public set inputData(data: Array<StoreData>) {
+    if (data) {
+      this.dataSource = new MatTableDataSource([...data]);
     }
+  }
 
-    @Input()
-    public set inputData(data: Array<StoreData>) {
-        if (data) {
-            this.dataSource = new MatTableDataSource([...data]);
-        }
-    }
+  @Input()
+  public displayedColumns!: string[];
 
-    @Input()
-    public displayedColumns!: string[];
+  @Input()
+  public title!: string;
 
-    @Input()
-    title!: string;
+  @Input()
+  public isAddButton!: boolean;
 
-    @Input()
-    isAddButton!: boolean;
+  @Input()
+  public addButtonText!: string;
 
-    @Input()
-    addButtonText!: string;
+  @Output()
+  public addClick = new EventEmitter();
 
-    @Output()
-    addClick = new EventEmitter();
-
-    @Output()
-    clickRow = new EventEmitter();
+  @Output()
+  public clickRow = new EventEmitter();
 
 
+  public ngOnInit(): void {
+    this.displayedColumnsNames = this.displayedColumns.map((column) => {
+      return column;
+    });
 
-    ngOnInit(): void {
-        this.displayedColumnsNames = this.displayedColumns.map((column) => {
-            return column;
-        });
+    this.selectedCurrency$ = this.store.select(selectCurrencyType);
+    this.exchangeRate$ = this.store.select(selectExchangeRate);
+  }
 
-        this.selectedCurrency$ = this.store.select(selectCurrencyType);
-        this.exchangeRate$ = this.store.select(selectExchangeRate);
-    }
-
-    get totalPrice() {
-        let total = 0;
-        this.store.select(selectByStore).forEach((stores) => {
-            stores.filter(x => {
-                total += (x.sum * x.quantity);
-            })
-        })
-        return total;
-    }
+  public get totalPrice() {
+    let total = 0;
+    this.store.select(selectByStore).forEach((stores) => {
+      stores.filter(x => {
+        total += (x.sum * x.quantity);
+      })
+    })
+    return total;
+  }
 }

@@ -17,7 +17,6 @@ import {LOCAL_STORAGE_TAB_INDEX_KEY} from './pages/store/store.component'
 export class AppComponent implements OnInit {
 
     public selectedCurrency$ = this.store.select(selectCurrencyType);
-
     public currencyOptions = ['USD', 'ILS']
     public selectedValue: string;
     public selectedIndex: number;
@@ -25,8 +24,8 @@ export class AppComponent implements OnInit {
     constructor(private router: Router, private store: Store) {
     }
 
-    ngOnInit(): void {
-        // Call abstractapi every 10 sec, if the currency changed updated him according to the selected currency.
+  public ngOnInit(): void {
+        // Call api every 10 sec, if the currency changed updated him according to the selected currency.
         setInterval(() => {
             this.store.dispatch(fetchExchangeRate())
         }, 10000)
@@ -36,7 +35,7 @@ export class AppComponent implements OnInit {
         this.selectedIndex = this.getSelectedTabIndex();
     }
 
-    onTabChanged(event: MatTabChangeEvent): void {
+  public onTabChanged(event: MatTabChangeEvent): void {
         switch (event.index) {
             case 0:
                 this.router.navigate(['/item']);

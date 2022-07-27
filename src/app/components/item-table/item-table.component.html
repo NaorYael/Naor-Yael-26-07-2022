@@ -1,47 +1,47 @@
 <div class="item-table">
-    <div class="header">
-        <div *ngIf="addButtonText" fxLayout="row" fxLayoutAlign="end center">
-            <button mat-raised-button (click)="onAddClick($event)"><span>+ {{addButtonText}}</span></button>
-        </div>
+  <div class="header">
+    <div *ngIf="addButtonText" fxLayout="row" fxLayoutAlign="end center">
+      <button mat-raised-button (click)="onAddClick($event)"><span>+ {{addButtonText}}</span></button>
     </div>
-    <div *ngIf="dataSource" class="mat-elevation-z5 table">
-        <mat-table [dataSource]="dataSource" *ngIf="dataSource">
+  </div>
+  <div *ngIf="dataSource" class="mat-elevation-z5 table">
+    <mat-table [dataSource]="dataSource" *ngIf="dataSource">
 
-            <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef>Item name</mat-header-cell>
-                <mat-cell
-                        *matCellDef="let row"> {{(row.name.length > 40) ? (row.name | slice: 0 : 40) + '..' : (row.name)}} </mat-cell>
-            </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Item name</mat-header-cell>
+        <mat-cell
+          *matCellDef="let row"> {{(row.name.length > 40) ? (row.name | slice: 0 : 40) + '..' : (row.name)}} </mat-cell>
+      </ng-container>
 
-            <ng-container matColumnDef="store">
-                <mat-header-cell *matHeaderCellDef>Store</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.store}}</mat-cell>
-            </ng-container>
+      <ng-container matColumnDef="store">
+        <mat-header-cell *matHeaderCellDef>Store</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.store}}</mat-cell>
+      </ng-container>
 
-            <ng-container matColumnDef="priceUSD">
-                <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
-                <mat-cell
-                        *matCellDef="let row"> {{ (selectedCurrency$ | async)! === usd ? '$' + row.priceUSD : '₪' + (row.priceUSD * (exchangeRate$ | async)  | number : '1.2-2')  }}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="estimatedDelivery">
-                <mat-header-cell *matHeaderCellDef>Delivery Estimated</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.estimatedDelivery}} </mat-cell>
-            </ng-container>
+      <ng-container matColumnDef="priceUSD">
+        <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+        <mat-cell
+          *matCellDef="let row"> {{ (selectedCurrency$ | async)! === usd ? '$' + row.priceUSD : '₪' + (row.priceUSD * (exchangeRate$ | async)  | number : '1.2-2')  }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="estimatedDelivery">
+        <mat-header-cell *matHeaderCellDef>Delivery Estimated</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.estimatedDelivery}} </mat-cell>
+      </ng-container>
 
-            <ng-container matColumnDef="isArchived">
-                <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-                <mat-cell *matCellDef="let row">
-                    <button mat-raised-button type="button" class="cancel-btn"
-                            (click)="handleArchiveMode(row)"> {{row.isArchived ? 'Reactive' : 'Archive'}}</button>
-                </mat-cell>
+      <ng-container matColumnDef="isArchived">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-raised-button type="button" class="cancel-btn"
+                  (click)="handleArchiveMode(row)"> {{row.isArchived ? 'Reactive' : 'Archive'}}</button>
+        </mat-cell>
 
-            </ng-container>
+      </ng-container>
 
-            <mat-header-row *matHeaderRowDef="displayedColumnsNames"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumnsNames;" (click)="onRowClick(row)"></mat-row>
-            <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell no-result" colspan="6">No result...</td>
-            </tr>
-        </mat-table>
-    </div>
+      <mat-header-row *matHeaderRowDef="displayedColumnsNames"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumnsNames;" (click)="onRowClick(row)"></mat-row>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell no-result" colspan="6">No result...</td>
+      </tr>
+    </mat-table>
+  </div>
 </div>

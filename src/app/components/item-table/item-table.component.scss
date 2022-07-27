@@ -1,40 +1,40 @@
 @use '../../../assets/global' as c;
 
 .item-table {
-    .header {
-        padding: 30px;
-        position: sticky;
-        top: 15px;
-        height: 60px;
-        width: auto;
-        margin-right: 15px;
-    }
+  .header {
+    padding: 30px;
+    position: sticky;
+    top: 15px;
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
+  }
 
-    .table {
-        margin: 15px;
-        border-collapse: collapse;
-        border-radius: 5px;
-    }
+  .table {
+    margin: 15px;
+    border-collapse: collapse;
+    border-radius: 5px;
+  }
 
-    .mat-header-cell {
-        background-color: c.$shopping-app-secondary !important;
-        font-family: c.$font-family;
-        font-size: c.$font-lg;
-        font-weight: 900;
-    }
+  .mat-header-cell {
+    background-color: c.$shopping-app-secondary !important;
+    font-family: c.$font-family;
+    font-size: c.$font-lg;
+    font-weight: 900;
+  }
 
-    mat-cell {
-        font-size: c.$font-lg;
-        text-align: center;
-        padding: 5px;
-    }
+  mat-cell {
+    font-size: c.$font-lg;
+    text-align: center;
+    padding: 5px;
+  }
 
-    .mat-row:hover {
-        background: c.$shopping-app-hover;
-    }
+  .mat-row:hover {
+    background: c.$shopping-app-hover;
+  }
 
-    .no-result {
-        font-size: c.$font-lg;
-        padding: 30px;
-    }
+  .no-result {
+    font-size: c.$font-lg;
+    padding: 30px;
+  }
 }

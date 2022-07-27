@@ -20,11 +20,11 @@
         background-color: c.$shopping-app-secondary;
     }
 
-    ::ng-deep .mat-ink-bar {
+    .mat-ink-bar {
         background-color: c.$shopping-app-white !important;
     }
 
-    ::ng-deep .mat-tab-label-content {
+    .mat-tab-label-content {
         font-size: c.$font-lg;
         color: c.$shopping-app-white !important;
     }

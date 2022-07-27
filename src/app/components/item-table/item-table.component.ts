@@ -35,21 +35,21 @@ export class ItemTableComponent implements OnInit {
     public displayedColumns!: string[];
 
     @Input()
-    title!: string;
+    public title!: string;
 
     @Input()
-    isAddButton!: boolean;
+    public isAddButton!: boolean;
 
     @Input()
-    addButtonText!: string;
+    public addButtonText!: string;
 
     @Output()
-    addClick = new EventEmitter();
+    public addClick = new EventEmitter();
 
     @Output()
-    clickRow = new EventEmitter();
+    public clickRow = new EventEmitter();
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.displayedColumnsNames = this.displayedColumns.map((column) => {
             return column;
         });
@@ -59,7 +59,7 @@ export class ItemTableComponent implements OnInit {
     }
 
 
-    onAddClick($event: MouseEvent): void {
+    public onAddClick($event: MouseEvent): void {
         this.addClick.emit($event);
 
         this.dialog.open(AddItemComponent, {
@@ -67,11 +67,11 @@ export class ItemTableComponent implements OnInit {
         });
     }
 
-    onRowClick(row: any): void {
+    public onRowClick(row: any): void {
         this.clickRow.emit(row);
     }
 
-    handleArchiveMode(payload: Item) {
+    public handleArchiveMode(payload: Item) {
         this.store.dispatch(payload.isArchived ? reactive({payload}) : archive({payload}));
     }
 }

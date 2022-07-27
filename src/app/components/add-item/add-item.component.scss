@@ -2,33 +2,33 @@
 
 .item-table {
 
-    .title {
-        display: flex;
-    }
+  .title {
+    display: flex;
+  }
 
-    .title div {
-        font-size: c.$font-lg;
-        position: relative;
-        left: 500px;
-        cursor: pointer;
-    }
+  .title div {
+    font-size: c.$font-lg;
+    position: relative;
+    left: 500px;
+    cursor: pointer;
+  }
 
-    mat-form-field {
-        width: 90%;
-    }
+  mat-form-field {
+    width: 90%;
+  }
 
-    .btn {
-        margin-right: 15px;
-        text-align: right;
-    }
+  .btn {
+    margin-right: 15px;
+    text-align: right;
+  }
 
-    button {
-        margin: 5px;
-    }
+  button {
+    margin: 5px;
+  }
 
-    .text-inside {
-        position: absolute;
-        left: 5px;
-        width: 100%;
-    }
+  .text-inside {
+    position: absolute;
+    left: 5px;
+    width: 100%;
+  }
 }
