@@ -12,3 +12,10 @@ export interface Rating {
     rate: number;
     count: number;
 }
+
+export interface ProductResponseError {
+  error: string;
+  message: string;
+  url: string;
+  status: number;
+}

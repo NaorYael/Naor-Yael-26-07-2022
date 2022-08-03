@@ -13,6 +13,7 @@ import {CurrencyResponseData} from '../models/currency-response-data'
 import {CurrencyService} from '../services/currency.service'
 import {ExchangeRateErrorResponse} from '../models/exchange-rate-error-response'
 import {ProductsService} from "../services/products.service";
+import {ProductResponseError} from '../models/product-response-data'
 
 @Injectable()
 export class AppEffects {
@@ -25,8 +26,9 @@ export class AppEffects {
             return of(updateExchangeRate({payload: response.exchange_rate}))
 
           }),
-          catchError((res: ExchangeRateErrorResponse) => {
-            return of(fetchExchangeError({payload: res.error.message}))
+          catchError((errorResponse: ExchangeRateErrorResponse) => {
+            const msg = errorResponse.error.error.message;
+            return of(fetchExchangeError({message: msg}))
           }),
         )
       }),
@@ -41,9 +43,10 @@ export class AppEffects {
           switchMap((result) => {
             return of(fetchProductsSuccess({payload: result}))
           }),
-          catchError((res) => {
-            const {message, error} = res.error;
-            return of(fetchProductsError({payload: message ? message : error}))
+          catchError((errorResponse: ProductResponseError) => {
+            console.log(errorResponse)
+            const msg = errorResponse.message;
+            return of(fetchProductsError({message: msg}))
           }),
         )
       })

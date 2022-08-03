@@ -1,3 +1,5 @@
+<div *ngIf="fetchProductsError$ | async as error" [ngClass]="{ 'error': error }">{{error}}</div>
+
 <div class="item-table">
   <div class="title">
     <h2>{{formTitle}}</h2>

@@ -1,3 +1,7 @@
+<div *ngIf="fetchExchangeError$ | async as error" [ngClass]="{ 'error': error }">
+  An error occurred while trying to fetch exchange rate:
+  {{error}}</div>
+
 <mat-toolbar>
     <div fxLayout="row" fxLayoutAlign="start" fxFlex>
         <mat-tab-group class="currency-text" (selectedTabChange)="onTabChanged($event)" [selectedIndex]="selectedIndex">
@@ -19,3 +23,4 @@
 <main>
     <router-outlet></router-outlet>
 </main>
+

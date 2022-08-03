@@ -1,8 +1,10 @@
 export interface ExchangeRateErrorResponse {
-    "error": {
-        "message": string;
-        "code": string
-        "details": string;
+    error: {
+        error: {
+          code: string;
+          message: string;
+          details?: string;
+        }
     }
 
 }

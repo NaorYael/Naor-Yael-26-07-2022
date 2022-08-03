@@ -6,7 +6,7 @@ import {add, fetchProducts} from "../../state/app.actions";
 import {Item} from "../../models/item";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {map, Observable, startWith} from 'rxjs';
-import {selectProducts} from '../../state/app.selectors';
+import {selectFetchProductsError, selectProducts} from '../../state/app.selectors';
 import {ProductsResponseData} from '../../models/product-response-data';
 import * as moment from 'moment';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
@@ -25,6 +25,7 @@ export class AddItemComponent implements OnInit {
   public options: string[] = [];
   public filteredOptions: Observable<string[]>;
   public products$: Observable<ProductsResponseData[]>;
+  public fetchProductsError$: Observable<string>
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +39,9 @@ export class AddItemComponent implements OnInit {
     this.fetchProducts();
     this.initForm();
     this.filter();
+
+
+    this.fetchProductsError$ = this.store.select(selectFetchProductsError);
   }
 
   public onAddItem(): void {

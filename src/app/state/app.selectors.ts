@@ -19,12 +19,21 @@ export const selectExchangeRate = createSelector(selectCurrency, (state) => {
   return state.exchangeRate;
 });
 
+export const selectFetchExchangeError = createSelector(selectCurrency, (state) => {
+  return state.errorMessage;
+});
+
 export const selectCurrencyType = createSelector(selectCurrency, (state) => {
   return state.selectedCurrency;
 });
 
 export const selectProducts = createSelector(selectProductState, (state) => {
   return state.products;
+});
+;
+
+export const selectFetchProductsError = createSelector(selectProductState, (state) => {
+  return state.errorMessage;
 });
 
 export const selectByStore = createSelector(selectItems, (state): Array<StoreData> => {

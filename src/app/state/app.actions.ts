@@ -42,7 +42,7 @@ export const fetchExchangeRate = createAction(
 
 export const fetchExchangeError = createAction(
   ActionTypes.FetchExchangeRateError,
-  props<{ payload: string }>()
+  props<{ message: string }>()
 );
 
 export const updateCurrencyType = createAction(
@@ -61,6 +61,6 @@ export const fetchProductsSuccess = createAction(
 
 export const fetchProductsError = createAction(
   ActionTypes.FetchProductsError,
-  props<{ payload: string }>()
+  props<{ message: string }>()
 );
 
