@@ -7,8 +7,11 @@ import {selectCurrencyType, selectFetchExchangeError} from "./state/app.selector
 import {fetchExchangeRate, updateCurrencyType} from "./state/app.actions";
 import {MatSelectChange} from '@angular/material/select'
 import {LOCAL_STORAGE_TAB_INDEX_KEY} from './pages/store/store.component'
-import {Observable} from 'rxjs'
+import {Subscription} from 'rxjs'
+import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy'
+import {MatSnackBar} from '@angular/material/snack-bar'
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,9 +24,11 @@ export class AppComponent implements OnInit {
   public currencyOptions = ['USD', 'ILS']
   public selectedValue: string;
   public selectedIndex: number;
-  public fetchExchangeError$: Observable<string>
+  public fetchExchangeError$: Subscription;
 
-  constructor(private router: Router, private store: Store) {
+  constructor(private router: Router,
+              private snackBar: MatSnackBar,
+              private store: Store) {
   }
 
   public ngOnInit(): void {
@@ -69,6 +74,12 @@ export class AppComponent implements OnInit {
   }
 
   private handleFetchExchangeError() {
-    this.fetchExchangeError$ = this.store.select(selectFetchExchangeError);
+    this.fetchExchangeError$ = this.store.select(selectFetchExchangeError)
+      .pipe(untilDestroyed(this))
+      .subscribe(errResponse => {
+        if (errResponse) {
+          this.snackBar.open(errResponse, 'Close', {duration: 3000});
+        }
+      });
   }
 }

@@ -25,7 +25,7 @@ export class AddItemComponent implements OnInit {
   public options: string[] = [];
   public filteredOptions: Observable<string[]>;
   public products$: Observable<ProductsResponseData[]>;
-  public fetchProductsError$: Observable<string>
+  public fetchProductsError$: any
 
   constructor(
     private fb: FormBuilder,
@@ -39,9 +39,7 @@ export class AddItemComponent implements OnInit {
     this.fetchProducts();
     this.initForm();
     this.filter();
-
-
-    this.fetchProductsError$ = this.store.select(selectFetchProductsError);
+    this.handleFetchProductsError();
   }
 
   public onAddItem(): void {
@@ -104,7 +102,6 @@ export class AddItemComponent implements OnInit {
       })
   }
 
-
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
@@ -113,5 +110,17 @@ export class AddItemComponent implements OnInit {
 
   private validatePayload(payload: Item): boolean {
     return !!(payload.name && payload.store && payload.priceUSD > 0 && payload.estimatedDelivery);
+  }
+
+  private handleFetchProductsError() {
+    this.fetchProductsError$ = this.store.select(selectFetchProductsError)
+      .pipe(untilDestroyed(this))
+      .subscribe(
+        errResponse => {
+          if (errResponse) {
+            this.snackBar.open(errResponse, 'Close', {duration: 3000});
+          }
+        }
+      );
   }
 }
