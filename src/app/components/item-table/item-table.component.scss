@@ -19,14 +19,14 @@
   .mat-header-cell {
     background-color: c.$shopping-app-secondary !important;
     font-family: c.$font-family;
-    font-size: c.$font-lg;
+    font-size: c.$font-md;
     font-weight: 900;
   }
 
   mat-cell {
-    font-size: c.$font-lg;
+    font-size: c.$font-md;
     text-align: center;
-    padding: 5px;
+    margin-inline-start: 3px;
   }
 
   .mat-row:hover {

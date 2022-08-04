@@ -10,7 +10,7 @@
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Item name</mat-header-cell>
         <mat-cell
-          *matCellDef="let row"> {{(row.name.length > 40) ? (row.name | slice: 0 : 40) + '..' : (row.name)}} </mat-cell>
+          *matCellDef="let row"> {{(row.name.length > 35) ? (row.name | slice: 0 : 35) + '..' : (row.name)}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="store">
