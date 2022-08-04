@@ -17,6 +17,7 @@ import {currencyReducer, itemsReducer, productsReducer} from './state/app.reduce
 import {StoreTableComponent} from "./components/store-table/store-table.component";
 import {EffectsModule} from '@ngrx/effects';
 import {AppEffects} from './state/app.effects'
+import {NotFoundComponent} from "./pages/not-found.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {AppEffects} from './state/app.effects'
     StoreTableComponent,
     AddItemComponent,
     ItemComponent,
-    StoreComponent
+    StoreComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
