@@ -27,6 +27,7 @@ export class AppEffects {
 
           }),
           catchError((errorResponse: ExchangeRateErrorResponse) => {
+            console.log(errorResponse)
             const msg = errorResponse.error.error.message;
             return of(fetchExchangeError({message: msg}))
           }),
