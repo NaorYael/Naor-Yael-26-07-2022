@@ -27,7 +27,7 @@
         </mat-table>
         <div *ngIf="totalPrice">
             <div fxLayout="row" fxLayoutAlign="center center" class="total">
-                Total price: {{ (selectedCurrency$ | async) === 'USD' ? '$' + totalPrice : '₪' + (totalPrice * (exchangeRate$ | async) | number : '1.2-2')}}
+                Total price: {{ (selectedCurrency$ | async) === 'USD' ? '$' + (totalPrice | number : '1.2-2'): '₪' + (totalPrice * (exchangeRate$ | async) | number : '1.2-2')}}
             </div>
         </div>
     </div>
